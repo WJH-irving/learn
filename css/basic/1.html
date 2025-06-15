@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 
+        3个css rule 
+        css rules  css cascading style sheet
+    */
+    p{
+        color:blue;
+    }
+    /* 选择最后的元素 */
+    #main p{
+        color:green;
+    }
+
+    .container p{
+        color:red;
+    }
+   
+</style>
+<body>
+    <p>hello</p>
+    <div id="main" class="container">
+        <p>这是第一个段落</p>
+    </div>
+    <div class="container">
+        <p>这是第二个段落</p>
+    </div>
+   
+</body>
+</html>
