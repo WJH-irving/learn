@@ -11,5 +11,5 @@
   - create a repo 
 ## git 配置
   github, gitee 身份
-- git config --global user.name ""
-- git config --global user.email ""
+- git config --global user.name "WJH-irving"
+- git config --global user.email "2354602665@qq.com"
