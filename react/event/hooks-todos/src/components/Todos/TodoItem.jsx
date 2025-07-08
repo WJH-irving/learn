@@ -1,7 +1,20 @@
-const TodoItem =()=>{
+const TodoItem =(props)=>{
+    const {
+        text,
+        isComplete,
+        id
+    } =props.todo 
+    const {onToggle,onDelete}=props
+
     return(
-        <div>
-            TodoItem
+        <div className="todo-item">
+            <input 
+                type="checkbox" 
+                checked={isComplete} 
+                onChange={onToggle}
+            />
+            <span className={isComplete? 'completed':''}>{text}</span>
+            <button onClick={onDelete}>Delete</button>
         </div>
     )
 
