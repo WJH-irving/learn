@@ -2,6 +2,7 @@ import {useState} from 'react'
 import PictureCard from './components/PictureCard';
 // uploadImg 太长了 -> generateAudio 模块化 -> 复用 -> lib/audio.js
 import {generateAudio} from './lib/audio.js';
+
 import './App.css'
 import {
   useState
@@ -62,12 +63,9 @@ function App() {
     setWord(replyData.representative_word);
     setSentence(replyData.example_sentence);
 
-    const audioUrl =await generateAudio(replay.example_sentence);
+    const audioUrl =await generateAudio(replyData.example_sentence);
+    setAudioUrl(audioUrl);
   } 
-  const generateAudio=()=>{
-
-  }
-  
   return (
     // JSX react 优势 方便写HTML模板
     <div className='container'>
