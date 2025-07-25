@@ -1,11 +1,11 @@
-import { 
+import {
     useState,
     useEffect
 } from 'react'
 import {
     Tabbar,
 } from 'react-vant';
-import{
+import {
     HomeO,
     Search,
     FriendsO,
@@ -19,31 +19,37 @@ import {
 } from 'react-router-dom';
 
 // 菜单栏配置
-const tabs=[
-    {icon:< HomeO />,title:'首页', path:'/home'},
-    {icon:< Search />,title:'特惠专区', path:'/discount'},
-    {icon:< FriendsO />,title:'我的收藏',path:'/collection'},
-    {icon:< SettingO />,title:'行程', path:'/trip'},
-    {icon:< UserO />,title:'账户', path:'/account'},
+const tabs = [
+    { icon: < HomeO />, title: '首页', path: '/home' },
+    { icon: < Search />, title: '特惠专区', path: '/discount' },
+    { icon: < FriendsO />, title: '我的收藏', path: '/collection' },
+    { icon: < SettingO />, title: '行程', path: '/trip' },
+    { icon: < UserO />, title: '账户', path: '/account' },
 ]
 const MainLayout = () => {
     const [active, setActive] = useState('home')
     const navigate = useNavigate();
     const location = useLocation();
-    useEffect(()=>{
-        console.log(location.pathname,'////')
+    useEffect(() => {
+        console.log(location.pathname, '////')
         // es6 的使用 
         const index = tabs.findIndex(tab => location.pathname.startsWith(tab.path));
         // setActive(tabs[index].path);
         setActive(index);
-    },[location.pathname]);
+    }, [location.pathname]);
     return (
-        <div>
-            <Outlet />
+        <div
+            className="flex flex-col h-screen"
+            style={{ paddingBottom: '50px' }}
+        >
+            <div className="flex-1">
+                <Outlet />
+            </div>
+
             <Tabbar value={active} onChange={
-                (key) => { 
-                    setActive(key); 
-                    navigate(tabs[key].path); 
+                (key) => {
+                    setActive(key);
+                    navigate(tabs[key].path);
                 }
             }>
                 {

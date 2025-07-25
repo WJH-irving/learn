@@ -92,6 +92,20 @@ Readme.md 很重要 方便面试官
     - /75
 
 ## 项目亮点 
+- 前端智能
+    - chat 函数
+    - 对各家模型比较感兴趣，可升级为其他大模型 灵活 
+        性能、能力、性价比
+        随意切换大模型，通过参数抽象
+- 原子css
+    - App.css 里面添加了通用样式
+    - 各自模块里module.css 不影响别的组件 
+    - lib-flexible 移动端适配
+    - postcss pxtorem 插件 快速还原设计稿
+    - 原子类的css 
+        一个元素按功能逻辑拆分成多个类，和原子一样
+        元素的样式就可以由这些原子类组合而成 
+        样式复用的更好 ，以后几乎可以不用写样式 
 - 移动端适配
     - lib-flexible 1rem = 屏幕宽度/10 
     - 设计稿 尺寸是iphone 标准尺寸 750px 
@@ -101,6 +115,11 @@ Readme.md 很重要 方便面试官
         postcss + postcss-pxtorem 插件
         postcss 是css 预编译器 ，很强大 
         vite 自动读取 postcss.config.js 将css 文件编译 px=>rem 
+
+## 项目遇到过什么问题，怎么解决
+- chat messages 遇到message 覆盖问题
+    - 闭包陷阱问题 
+        一次事件里面，两次setMessages()
 ## git 提交规范
 - 项目初始化 
 ## 功能模块
@@ -125,8 +144,20 @@ Readme.md 很重要 方便面试官
         - useTitle 
         一定要设置 
 
+- chatbot 模块
+    - llm 模块 chat 封装 
+    - 迭代chat，支持任意模型 
+
 - es6 特性使用 
     tabber 的高亮 
     - 数组的findIndex 方法
     - 字符串的startsWith 方法
     - promise 
+
+- 项目迭代 
+    - 功能由浅入深 
+    - chatbot deepseek 简单chat
+    - deepseek-r1 推理模型
+    - 流式输出 
+    - 上下文 LRU 
+    - coze 工作流接口调用 
