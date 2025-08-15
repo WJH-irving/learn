@@ -65,21 +65,21 @@ Readme.md 很重要 方便面试官
     - mock 
     - .env.local
     LLM apiKey
-    - user-scalable=no 禁用浏览器的缩放功能
-    - css 预处理 
-        index.css reset 
-            box-sizing font-family:-apply-system 
-        App.css 全局通用样式
-        module.css 模块样式
-    - 移动端适配 rem 
-        不能用px，相对单位rem html
-        不同设备上体验要一致 
-        不同尺寸手机 要等比例缩放 
-        设计师设计稿 750px iphone 4 375pt *2 = 750
-        css 一行代码 手机的不同尺寸 html font-size 等比例 
-        layout 
-        flexible.js 阿里 在任何设备上
-        1rem = 屏幕宽度/10 
+- user-scalable=no 禁用浏览器的缩放功能
+- css 预处理 
+    index.css reset 
+        box-sizing font-family:-apply-system 
+    App.css 全局通用样式
+    module.css 模块样式
+- 移动端适配 rem 
+    不能用px，相对单位rem html
+    不同设备上体验要一致 
+    不同尺寸手机 要等比例缩放 
+    设计师设计稿 750px iphone 4 375pt *2 = 750
+    css 一行代码 手机的不同尺寸 html font-size 等比例 
+    layout 
+    flexible.js 阿里 在任何设备上
+    1rem = 屏幕宽度/10 
 - lib-flexible
     阿里开源
     设置html fontSize = window.innerWidth / 10 
@@ -97,6 +97,8 @@ Readme.md 很重要 方便面试官
     - 对各家模型比较感兴趣，可升级为其他大模型 灵活 
         性能、能力、性价比
         随意切换大模型，通过参数抽象
+    - 文生图
+        - 优化prompt 设计 
 - 原子css
     - App.css 里面添加了通用样式
     - 各自模块里module.css 不影响别的组件 
@@ -106,6 +108,14 @@ Readme.md 很重要 方便面试官
         一个元素按功能逻辑拆分成多个类，和原子一样
         元素的样式就可以由这些原子类组合而成 
         样式复用的更好 ，以后几乎可以不用写样式 
+- 用户体验优化 
+    - 搜索建议， 防抖 + useMemo  性能优化
+    - 组件粒度划分 
+        React.memo + useCallback 
+    - 懒加载 
+    - 热门推荐 + 相关商品  (产品)
+    - SPA 
+    - 骨架屏 不用让用户等待了 
 - 移动端适配
     - lib-flexible 1rem = 屏幕宽度/10 
     - 设计稿 尺寸是iphone 标准尺寸 750px 
@@ -115,6 +125,14 @@ Readme.md 很重要 方便面试官
         postcss + postcss-pxtorem 插件
         postcss 是css 预编译器 ，很强大 
         vite 自动读取 postcss.config.js 将css 文件编译 px=>rem 
+- 语音输入发表文章
+    - 字节的 tts
+    - onMouseDown
+    - BOM html5
+    navigator.mediaDevices.getUserMedia({
+        audio: true
+    })
+    用户隐私，要授权 getLocation 
 
 ## 项目遇到过什么问题，怎么解决
 - chat messages 遇到message 覆盖问题
@@ -161,3 +179,24 @@ Readme.md 很重要 方便面试官
     - 流式输出 
     - 上下文 LRU 
     - coze 工作流接口调用 
+- Search
+    - 防抖
+    - api
+        GoogleSuggest
+    - localStorage
+
+## 通用组件开发
+- Loading
+    - 居中方案 
+        position:fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    - React.memo 无状态的组件， 不重新渲染 
+    - animation
+
+
+- AI 功能
+    智能前端（http 请求） + 工作流 + coze api + ai 全新工作链路 + 自动化Agent 

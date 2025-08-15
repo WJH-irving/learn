@@ -50,3 +50,10 @@ export const deepChat = async (messages)=>{
     )
     return res ;
 }
+
+export const generateAvatar = async()=>{
+    // 设计prompt
+    const prompt = `
+        你是一名风景拍摄者，也是一位漫画设计师，需要为用户设计头像，主打风景画或者实景图，按照用户所给信息(${text})，要求有个性，有设计感，能够符合用户需求。
+    `
+}
